@@ -1,4 +1,4 @@
-<div ng-if="!modeIconComponent.show">
+<!-- <div ng-if="!modeIconComponent.show">
   {{modeIconComponent.childDetails.negationStatement}}
 </div>
 {{modeIconComponent.show}}
@@ -18,7 +18,62 @@
     {{modeIconComponent.selectedMode}}
     <div ng-include="'public/components/travelplancomponent/child-icon-router-component/child-icon-templates/'+modeIconComponent.selectedMode+'/template.html'"></div>
   </div>
+</div> -->
+
+
+
+
+
+
+
+
+<div>
+Inside Flight
+  <div class="btnWithToolTip" ng-if="modeIconComponent.childData.state == 'preInitial'">
+    <md-button ng-click="modeIconComponent.showModes()">
+      {{modeIconComponent.childDetails.preInitialCaption}}
+      {{modeIconComponent.modeShow}}
+    </md-button>
+    <span class="btnToolTip" ng-show="modeIconComponent.modeShow" >
+      <i ng-repeat="(modeId,modeDetails) in modeIconComponent.childDetails.servicesDetails" class="material-icons"  ng-click="modeIconComponent.selectMode(modeId)">{{modeDetails.icons}}</i>
+    </span>
+
+  </div>
+  <div ng-if="modeIconComponent.childData.state == 'initial'||modeIconComponent.childData.state == 'request'||modeIconComponent.childData.state == 'select'">
+    {{modeIconComponent.selectedMode}}
+    <div ng-include="'public/components/travelplancomponent/child-icon-router-component/child-icon-templates/'+modeIconComponent.selectedMode+'/template.html'"></div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <br>
+I am inside child-icon-router-component
+<br>
+<br> -->
+
+<!-- <child-icon-router-component child-type="modeIconComponent.childDetails." child-details="childDetails" reflect-child-select="node.reflectChildSelect(childId)"    create-child="node.createMimicChild(childId)"
+child-data="node.travelelement.childServices[childId]"
+child-renderer-state="node.dummyState" show="node.showMimic"
+</child-icon-router-component> -->
+
+
+
+
+
+
+
 
 <!-- <br>
 I am inside child-icon-router-component

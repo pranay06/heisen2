@@ -1,1 +1,16 @@
-<common-icon-component child-details="localTravelIconComponentCtrl.childDetails" reflect-child-select="localTravelIconComponentCtrl.reflectChildSelect" child-data="localTravelIconComponentCtrl.childData" create-child="localTravelIconComponentCtrl.createChild()" child-renderer-state="localTravelIconComponentCtrl.childRendererState"  show="localTravelIconComponentCtrl.show"></common-icon-component>
+
+<md-button ng-if="localTravelIconComponentCtrl.childData.state == 'preInitial'" ng-click="localTravelIconComponentCtrl.reflectChildSelect()">
+  {{localTravelIconComponentCtrl.childDetails.captions.preInitial}}
+</md-button>
+
+<div ng-if="localTravelIconComponentCtrl.childData.state == 'initial'">
+  <div ng-repeat="childServicesData in localTravelIconComponentCtrl.childData.individualChildServices">
+    <md-button ng-click="localTravelIconComponentCtrl.reflectChildSelect()">
+      {{localTravelIconComponentCtrl.captions[childServicesData.state]}}
+      <div ng-if="childServicesData.state == 'select'">
+        {{childServicesData.selected.name}}
+      </div>
+    </md-button>
+  </div>
+  {{localTravelIconComponentCtrl.childDetails}}
+</div>
