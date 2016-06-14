@@ -2,7 +2,9 @@
     <div ng-if="multiSelectBoxCtrl.listDataType =='element' ">
   		<md-input-container>
   		    <label>{{multiSelectBoxCtrl.label}}</label>
-  		   	<md-select ng-model="multiSelectBoxCtrl.bindData" ng-change="multiSelectBoxCtrl.reflectValue(multiSelectBoxCtrl.bindData)" multiple>
+  		   	<md-select ng-model="multiSelectBoxCtrl.bindData" ng-change="multiSelectBoxCtrl.reflectValue(multiSelectBoxCtrl.bindData)"
+          ng-focus="multiSelectBoxCtrl.currentlyFocussed()"
+          multiple>
 
   		       <md-option ng-value="option" ng-repeat="option in multiSelectBoxCtrl.specificAttr.domainList">{{option}}</md-option>
 

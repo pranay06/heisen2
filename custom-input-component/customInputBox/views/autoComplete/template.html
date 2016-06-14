@@ -6,7 +6,8 @@ bind data ads{{CustomInputBoxCtrl.bindData}}
 <!-- <br> -->
 
 <autocomplete-box reflect-component="CustomInputBoxCtrl.reflectCustomBox(value)" bind-data="CustomInputBoxCtrl.bindData" type="{{CustomInputBoxCtrl.type}}" label="{{CustomInputBoxCtrl.label}}" specific-attr='CustomInputBoxCtrl.specificAttr'
-required="{{CustomInputBoxCtrl.required}}  >
+required="{{CustomInputBoxCtrl.required}}
+reflect-focussed-input='CustomInputBoxCtrl.reflectFocussedComponent()' >
 
 <!-- <autocomplete-box reflect-component="CustomInputBoxCtrl.reflectCustomBox(value)" bind-data="CustomInputBoxCtrl.bindData" type="{{CustomInputBoxCtrl.type}}" label="{{CustomInputBoxCtrl.label}}" specific-attr='CustomInputBoxCtrl.specificAttr' querySearch='CustomInputBoxCtrl.specificAttr.querySearch' min-length='(CustomInputBoxCtrl.specificAttr.minLength == undefined)?2|CustomInputBoxCtrl.specificAttr.minLength' > -->
 

@@ -8,7 +8,8 @@ angular.module('app')
       specificAttr: '<',
       bindData: '<',
       reflectComponent: '&',
-      required: '@'
+      required: '@',
+      reflectFocussedInput:'&'
     }
   });
 
@@ -19,10 +20,15 @@ function singleSelectBoxCtrl()
   console.log("specific attributes are");
   console.log(singleSelectBoxCtrl.specificAttr);
   console.log(this);
+  singleSelectBoxCtrl.currentlyFocussed=function()
+  {
+    singleSelectBoxCtrl.reflectFocussedInput();
+    console.log("currentlyFocussed inside singleSelectBoxCtrl");
+    //this.reflectFocussedInput();
+  }
   this.reflectValue = function(value) {
     console.log("#############");
     console.log(value);
-
     this.reflectComponent({value:value});
 
   };

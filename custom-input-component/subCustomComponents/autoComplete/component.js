@@ -7,7 +7,8 @@ angular.module('app')
       label: '@',
       specificAttr: '<',
       bindData: '<',
-      reflectComponent: '&'
+      reflectComponent: '&',
+      reflectFocussedInput:'&'
     }
   });
 
@@ -24,6 +25,13 @@ function autocompleteBoxCtrl($http,$scope)
       autocompleteBoxCtrl.reflectComponent({value:value});
 
     };
+
+    autocompleteBoxCtrl.currentlyFocussed=function()
+    {
+      autocompleteBoxCtrl.reflectFocussedInput();
+      console.log("currentlyFocussed inside singleSelectBoxCtrl");
+      //this.reflectFocussedInput();
+    }
 
     // autocompleteBoxCtrl.states= loadAll($http);
     autocompleteBoxCtrl.selectedItem;

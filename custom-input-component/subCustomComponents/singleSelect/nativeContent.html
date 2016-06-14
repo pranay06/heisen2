@@ -1,8 +1,7 @@
 <md-input-container>
       <label>{{singleSelectBoxCtrl.label}}</label>
-
-
-      <md-select ng-model="singleSelectBoxCtrl.bindData" ng-change="singleSelectBoxCtrl.reflectValue(singleSelectBoxCtrl.bindData)" ng-required="singleSelectBoxCtrl.required">
+      <md-select ng-model="singleSelectBoxCtrl.bindData" ng-change="singleSelectBoxCtrl.reflectValue(singleSelectBoxCtrl.bindData)" ng-required="singleSelectBoxCtrl.required"
+      ng-focus="singleSelectBoxCtrl.currentlyFocussed()">
         <div ng-if="singleSelectBoxCtrl.listType=='array'">
           <div ng-if="singleSelectBoxCtrl.listDataType =='object' ">
             <md-option  ng-repeat="item in singleSelectBoxCtrl.specificAttr.domainList" value="{{item[singleSelectBoxCtrl.specificAttr.listValueKey]}}">

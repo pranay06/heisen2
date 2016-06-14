@@ -8,12 +8,19 @@ angular.module('app').
       specificAttr: '<',
       required: '@',
       bindData: '<',
-      reflectComponent: '&'
+      reflectComponent: '&',
+      reflectFocussedInput:'&'
     }
   });
 
 function singleSliderCtrl() {
   var singleSliderCtrl = this;
+  singleSliderCtrl.currentlyFocussed=function()
+  {
+  singleSliderCtrl.reflectFocussedInput();
+  console.log("currentlyFocussed inside singleSliderCtrl");
+    //this.reflectFocussedInput();
+  }
   if(singleSliderCtrl.bindData == undefined)
     singleSliderCtrl.bindData = singleSliderCtrl.specificAttr.floor;
   console.log("Inside single Slider Ctrl");
