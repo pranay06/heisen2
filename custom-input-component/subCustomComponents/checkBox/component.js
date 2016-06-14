@@ -18,9 +18,10 @@ function CheckBoxBoxCtrl($scope) {
    console.log(ctrl);
 
    ctrl.$onChanges = function(changedObj) {
-    
+
     console.log("In Changed Object");
     console.log(changedObj);
+
     console.log(changedObj.bindData);
     console.log("****************");
     // console.log(changedObj.isFirstChange());
@@ -76,9 +77,14 @@ function CheckBoxBoxCtrl($scope) {
      console.log("==================");
      console.log(ctrl.bindData);
      console.log("+++++++++++++++++");
-    //  if(ctrl.bindData == undefined) {
-    //    ctrl.bindData = [];
-    //  }
+     if(ctrl.bindData == undefined) {
+       ctrl.bindData = [];
+       setTimeout(function() {
+         $scope.$apply(function() {
+           ctrl.bindData = ctrl.bindData.splice(0,0).splice();
+         });
+       },5000);
+     }
     ctrl.checkBoxInternalData = [];
     if(ctrl.domainList.constructor === Object) {
       ctrl.listType = "object";
@@ -122,6 +128,43 @@ function CheckBoxBoxCtrl($scope) {
           });
         }
     }
+    else {
+      console.log("Bind data is empty");
+      if(ctrl.domainList.constructor === Object)
+        {
+          console.log("It is an object");
+          for (itemId in ctrl.domainList) {
+            console.log("I am inside loop of domain list");
+            console.log(itemId);
+            // console.log(ctrl.bindData);
+
+            // if(ctrl.bindData.indexOf(itemId)>-1) {
+              // console.log("Inside if");
+              ctrl.checkBoxInternalData.push(false);
+            // }
+            // else
+            // {
+            //   console.log("else");
+            //   ctrl.checkBoxInternalData.push(false);
+            // }
+          }
+
+        }
+      else
+        if (ctrl.domainList.constructor === Array) {
+          console.log("It is an Array");
+          ctrl.domainList.forEach(function(item){
+              // if(ctrl.bindData.indexOf(item)>-1) {
+                  // ctrl.checkBoxInternalData.push(true);
+              // }
+              // else {
+                  ctrl.checkBoxInternalData.push(false);
+              // }
+
+          });
+        }
+
+    }
 
    };
    // ctrl.bindData = [];
@@ -131,24 +174,30 @@ function CheckBoxBoxCtrl($scope) {
 
      console.log("Inside Toggle");
      var status = false;
+     if(ctrl.bindData == undefined) {
+       ctrl.bindData = [];
+     }
      var idx = ctrl.bindData.indexOf(value);
      console.log("Index ", idx);
 
+     console.log(ctrl.checkBoxInternalData);
      if(ctrl.checkBoxInternalData[itemIndex] == false)
      {
+       console.log("I am in first if");
        ctrl.bindData.push(value);
        ctrl.checkBoxInternalData[itemIndex] = true;
      }
 
      else {
+       console.log("I am in second if");
        ctrl.checkBoxInternalData[itemIndex] = false;
        ctrl.bindData.splice(idx,1);
      }
      console.log("Status ", status);
      // ctrl.ngChecked({currentSelectedItems: ctrl.bindData});
 
-
-     this.reflectComponent({value:ctrl.bindData});
+     console.log(ctrl.bindData);
+     this.reflectComponent({"value":ctrl.bindData});
    };
 
 
