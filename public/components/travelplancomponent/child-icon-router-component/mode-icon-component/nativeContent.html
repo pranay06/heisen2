@@ -1,0 +1,31 @@
+<div ng-if="!modeIconComponent.show">
+  {{modeIconComponent.childDetails.negationStatement}}
+</div>
+{{modeIconComponent.show}}
+<div ng-if="modeIconComponent.show">
+  {{modeIconComponent.childRendererState}}
+  <div class="btnWithToolTip" ng-if="modeIconComponent.childRendererState == 'notExist'">
+    <md-button ng-click="modeIconComponent.showModes()">
+      {{modeIconComponent.childDetails.chooseCaption}}
+      {{modeIconComponent.modeShow}}
+    </md-button>
+    <span class="btnToolTip" ng-show="modeIconComponent.modeShow" >
+      <i ng-repeat="(modeId,modeDetails) in modeIconComponent.childDetails.servicesDetails" class="material-icons"  ng-click="modeIconComponent.selectMode(modeId)">{{modeDetails.icons}}</i>
+    </span>
+
+  </div>
+  <div ng-if='modeIconComponent.childRendererState== "exists" || modeIconComponent.childRendererState=="focus"'>
+    {{modeIconComponent.selectedMode}}
+    <div ng-include="'public/components/travelplancomponent/child-icon-router-component/child-icon-templates/'+modeIconComponent.selectedMode+'/template.html'"></div>
+  </div>
+</div>
+
+<!-- <br>
+I am inside child-icon-router-component
+<br>
+<br> -->
+
+<!-- <child-icon-router-component child-type="modeIconComponent.childDetails." child-details="childDetails" reflect-child-select="node.reflectChildSelect(childId)"    create-child="node.createMimicChild(childId)"
+child-data="node.travelelement.childServices[childId]"
+child-renderer-state="node.dummyState" show="node.showMimic"
+</child-icon-router-component> -->

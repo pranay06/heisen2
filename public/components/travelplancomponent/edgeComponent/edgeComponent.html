@@ -1,0 +1,28 @@
+<div class="progress-line">
+    <div  ng-cloak class=" node-sm travel-button" ng-click="edge.selectededge(edge.currentedge,['flight','bus','train'])">
+      <div class="wrapper">
+       <i class="material-icons">
+            {{edge.travelelement.modesToSelectTheServices.mode}}
+        </i>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode==' '">Select a Travel</span>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode=='flight' && edge.travelelement.childServices['flight'].state==request">{{edge.travelelement.childServices['flight'].requested}}</span>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode=='flight' && edge.travelelement.childServices['flight'].state==select">{{edge.travelelement.childServices['flight'].selected}}</span>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode=='train' && edge.travelelement.childServices['train'].state==request">{{edge.travelelement.childServices['train'].requested}}</span>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode=='train' && edge.travelelement.childServices['train'].state==select">{{edge.travelelement.childServices['train'].selected}}</span>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode=='bus' && edge.travelelement.childServices['bus'].state==request">{{edge.travelelement.childServices['bus'].requested}}</span>
+          <span class="tooltip" ng-if="edge.travelelement.modesToSelectTheServices.mode=='bus' && edge.travelelement.childServices['bus'].state==select">{{edge.travelelement.childServices['bus'].selected}}</span>
+      </div>
+    </div>
+    <div class="middle-bar">
+
+    </div>
+    <div  class="edgechildServices" ng-repeat="(key,value) in edge.transitchildservices">
+      <div class="wrapper">
+      <i class="material-icons node-stay" ng-click="edge.selectededge(edge.currentnode,[key])">{{value.icons}}</i>
+      <span class="tooltip" ng-if="node.travelelement.childServices[key].state==' '">Select a {{key}}</span>
+     <span class="tooltip" ng-if="node.travelelement.childServices[key].state=='request'">Requested a {{key}} at  {{node.travelelement.childServices[key].requested}}</span>
+     <span class="tooltip" ng-if="node.travelelement.childServices[key].state=='select'">Requested a  {{key}} at  {{node.travelelement.childServices[key].selected}}</span>
+    </div>
+  </div>
+
+</div>

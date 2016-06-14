@@ -1,0 +1,75 @@
+{
+      "filters":[
+        {
+          "label":"Price",
+          "id":"price",
+          "type":"rangeSlider",
+          "options": {
+                      "floor": 100,
+                      "ceil": 1000,
+                      "step": 1,
+                      "noSwitching": true,
+                      "endPointsTranslate": {
+                        "prefix": "",
+                        "postfix": ""
+                      },
+                      "leftSliderHandleTranslate": {
+                        "prefix": "",
+                        "postfix": ""
+                      },
+
+                      "rightSliderHandleTranslate": {
+                        "prefix": "",
+                        "postfix": ""
+                      }
+              }
+        },
+        {
+          "label":"Cab company",
+          "id":"company",
+          "type":"checkbox",
+          "options": {
+      			"domainList": ["Ola","Uber","MeruCabs","MegaCabs"]
+      		}
+        }
+      ]
+  ,
+  "searchResults":
+  [
+                {
+                  "image":"public/assets/images/dzire.PNG",
+                  "company":"Ola",
+                  "Name":"Dzire, Fusion",
+                  "Capacity":"4 + Driving Seat",
+                  "price":"225"
+                  },
+                  {
+                  "image":"public/assets/images/innova.PNG",
+                  "company":"Ola",
+                  "Name":"Innova, Xylo",
+                  "Capacity":"6 + Driving Seat",
+                  "price":"350"
+                  },
+                  {
+                  "image":"public/assets/images/corolla.PNG",
+                  "company":"MegaCabs",
+                  "Name":"Corolla, Elantra Cruze",
+                  "Capacity":"4 + Driving Seat",
+                  "price":"450"
+                  },
+                  {
+                  "image":"public/assets/images/mercedesC.PNG",
+                  "company":"Uber",
+                  "Name":"Mercddes-C",
+                  "Capacity":"4 + Driving Seat",
+                  "price":"600"
+                  },
+                  {
+                  "image":"public/assets/images/mercdesE.PNG",
+                  "company":"MeruCabs",
+                  "Name":"Mercddes-E Series",
+                  "Capacity":"4 + Driving Seat",
+                  "price":"1000"
+                  }
+                ]
+}

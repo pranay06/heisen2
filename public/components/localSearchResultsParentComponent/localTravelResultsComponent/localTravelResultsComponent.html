@@ -1,0 +1,64 @@
+<div class="content_div" ng-cloak layout="row" layout-sm="column">
+
+  <div id="sidebar" hide-sm hide-xs flex="20">
+    <md-grid-list md-cols=2 md-row-height="4:1" class="det_header">
+      <md-grid-tile>Filter results</md-grid-tile>
+      <md-grid-tile>
+        <md-button class="md-primary" ng-click="localTravelResults.reset()">Reset All</md-grid-tile>
+    </md-grid-list>
+    <md-card ng-repeat="filter in localTravelResults.filters">
+      <md-card-content>
+        <custom-input-box type='{{filter.type}}' id='{{filter.id}}' label='{{filter.label}}' specific-attr='filter.options' reflect-custom-input="localTravelResults.reflectValue(keyString,value, id)" bind-data="" bind-data-key=""></custom-input-box>
+      </md-card-content>
+      <!-- <md-card-title>
+                <md-card-title-text>
+                  {{filter.Displayname}}
+                </md-card-title-text>
+              </md-card-title>
+                <md-card-content>
+                  <div ng-show={{filter.type=='slider'}}>
+
+                    <price-filter data="filter.data" range="localTravelResults.range" attribute="filter.attribute" on-price-filter-change="localTravelResults.onPriceChange(attribute,range)"></price-filter>
+                  </div>
+                  <div ng-show={{filter.type=='checkbox'}}>
+                    <area-filter data="filter.data" on-area-filter-change="localTravelResults.onAreaChange(area,check)"></area-filter>
+
+                  </div>
+                  <div ng-show={{filter.type=='button'}}>
+                    <time-filter data="filter.data" attribute="filter.attribute" on-time-filter-change="localTravelResults.onTimeChange(attribute,time)"></time-filter>
+
+                  </div>
+                </md-card-content> -->
+    </md-card>
+  </div>
+  <div id="mainbar" flex="100" flex-gt-sm="80">
+    <!-- <md-grid-list class="det_header md-caption" md-cols="7" md-gutter="1em" md-row-height="4:1">
+      <md-grid-tile>Train name(No)</md-grid-tile>
+      <md-grid-tile>Departure
+        <i class="material-icons sortIc" ng-show="localTravelResults.sortIcon" ng-click="localTravelResults.sortIcon=!localTravelResults.sortIcon;localTravelResults.sort('departure_time')">arrow_drop_down</i>
+        <i class="material-icons sortIc" ng-show="!localTravelResults.sortIcon" ng-click="localTravelResults.sortIcon=!localTravelResults.sortIcon;localTravelResults.sort('-departure_time')">arrow_drop_up</i>
+      </md-grid-tile>
+      <md-grid-tile>Arrival
+        <i class="material-icons sortIc" ng-show="localTravelResults.sortIcon" ng-click="localTravelResults.sortIcon=!localTravelResults.sortIcon;localTravelResults.sort('arrival_time')">arrow_drop_down</i>
+        <i class="material-icons sortIc" ng-show="!localTravelResults.sortIcon" ng-click="localTravelResults.sortIcon=!localTravelResults.sortIcon;localTravelResults.sort('-arrival_time')">arrow_drop_up</i>
+
+      </md-grid-tile>
+      <md-grid-tile>Duration</md-grid-tile>
+      <md-grid-tile>Availability/WL</md-grid-tile>
+      <md-grid-tile>Price
+        <i class="material-icons sortIc" ng-show="localTravelResults.sortIcon" ng-click="localTravelResults.sortIcon=!localTravelResults.sortIcon;localTravelResults.sort('price')">arrow_drop_down</i>
+        <i class="material-icons sortIc" ng-show="!localTravelResults.sortIcon" ng-click="localTravelResults.sortIcon=!localTravelResults.sortIcon;localTravelResults.sort('-price')">arrow_drop_up</i>
+      </md-grid-tile>
+      <md-grid-tile></md-grid-tile>
+    </md-grid-list> -->
+
+    <md-card ng-if="localTravelResults.data.length==0">
+      <center>No train runs on the filters you have applied. <br> Please modify the filters.
+      </center>
+    </md-card>
+    <md-card class="animate-repeat" ng-repeat="one in localTravelResults.data | orderBy:localTravelResults.myorder">
+      <!--ng-if="one.price > localTravelResults.range"-->
+      <results-component one="one"></results-component>
+    </md-card>
+  </div>
+</div>
