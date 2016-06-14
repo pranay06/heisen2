@@ -11,7 +11,6 @@
 				"select": "Staying at ",
 				"negationStatement": "No Stay Selected"
 			}
-
 		},
 		"localTravel":{
 			"icons":"directions_car",
@@ -79,18 +78,18 @@
     }
   },
   "servicesIntializer": {
-    "stay": [
+    "stay":
       {
         "state": "initial",
         "requested": {}
       }
-    ],
-    "localTravel": [
+    ,
+    "localTravel":
       {
         "state": "initial",
         "requested": {}
       }
-    ]
+    
   },
   "services": {
     "stay": {

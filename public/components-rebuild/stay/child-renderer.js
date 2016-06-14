@@ -6,7 +6,8 @@ var app = angular.module("app").component("stayRenderer", {
       "childFieldsData": "<",
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
-      "deleteAll": "&"
+      "deleteAll": "&",
+      "childGroupState": "@"
     }
 });
 
