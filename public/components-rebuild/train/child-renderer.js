@@ -6,7 +6,8 @@ var app = angular.module("app").component("trainRenderer", {
       "childFieldsData": "<",
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
-      "deleteAll": "&"
+      "deleteAll": "&",
+      "currentlyFocussedForm":"&"
     }
 });
 
@@ -16,6 +17,12 @@ function trainRendererCtrl()
   var trainRenderer = this;
   console.log("Inside trainRenderer");
   console.log(trainRenderer);
+
+  trainRenderer.reflectFormIsFoccused=function()
+    {
+      console.log("train form is focussed")
+      trainRenderer.currentlyFocussedForm();
+    }
 
   trainRenderer.onDelete = function(index) {
     console.log("inside on delete");

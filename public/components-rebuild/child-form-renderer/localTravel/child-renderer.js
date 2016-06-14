@@ -5,7 +5,8 @@ var app = angular.module("app").component("localTravelRenderer", {
     bindings: {
       "arrayOfChildFieldsData": "<",
       "metaDataOfChildFields": "<",
-      "cardHeading": "@"
+      "cardHeading": "@",
+      "currentlyFocussedForm":"&"
     }
 });
 

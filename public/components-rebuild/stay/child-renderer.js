@@ -7,7 +7,7 @@ var app = angular.module("app").component("stayRenderer", {
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
       "deleteAll": "&",
-      "childGroupState": "@"
+      "currentlyFocussedForm":"&"
     }
 });
 
@@ -28,6 +28,12 @@ function stayRendererCtrl()
   //   console.log(stayRenderer.childFieldsData);
   //   console.log("end of oninit stay");
   // }
+
+  stayRenderer.reflectFormIsFoccused=function()
+  {
+    console.log("stay form is focussed")
+    stayRenderer.currentlyFocussedForm();
+  }
   console.log("Stay renderer");
   console.log(stayRenderer);
   stayRenderer.onDelete = function(index) {

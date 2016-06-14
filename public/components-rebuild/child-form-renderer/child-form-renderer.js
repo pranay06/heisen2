@@ -5,7 +5,8 @@ angular.module('app')
   controllerAs: "childFormRenderer",
   bindings: {
     fieldsData: '<',
-    fieldsMetaData: '<'
+    fieldsMetaData: '<',
+    isFocussed:'&'
   }
 });
 
@@ -71,9 +72,15 @@ function childFormRendererController($http) {
     console.log(value);
     childFormRenderer.fieldsData[id] = value;
   };
+  //reflecting that the custom input is in focus
 
 
+  childFormRenderer.onReflectFocus=function()
+  {
+    console.log("hello iam focccused");
+    childFormRenderer.isFocussed();
 
+  }
 
 
 

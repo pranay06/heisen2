@@ -9,7 +9,7 @@
   <div ng-repeat="childFieldsData in localTravelRenderer.childFieldsData">
     <md-divider layout-margin></md-divider>
     <div layout-margin ng-if="childFieldsData.state == 'initial' || childFieldsData.state == 'request'">
-      <child-form-renderer fields-data="childFieldsData.requested" fields-meta-data="localTravelRenderer.metaDataOfChildFields"></child-form-renderer>
+      <child-form-renderer fields-data="childFieldsData.requested" fields-meta-data="localTravelRenderer.metaDataOfChildFields" is-focussed="localTravelRenderer.reflectFormIsFoccused()"></child-form-renderer>
       <ng-md-icon flex="40" size="35px" flex-offset="10" icon="delete"  ng-click="localTravelRenderer.onDelete($index)"></ng-md-icon>
       <ng-md-icon flex="40" size="35px" flex-offset="10" icon="add_circle" ng-click="localTravelRenderer.onAdd()" ng-show="$index == localTravelRenderer.childFieldsData.length-1"></ng-md-icon>
 

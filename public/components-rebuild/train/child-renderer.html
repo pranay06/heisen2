@@ -21,7 +21,8 @@ meta-data-of-child-fields="trainRenderer.metaDataOfChildFields" card-heading="{{
     <md-divider layout-margin></md-divider>
     <div layout-margin ng-if="trainRenderer.childFieldsData.state == 'initial' || trainRenderer.childFieldsData.state == 'request'">
 
-      <child-form-renderer fields-data="trainRenderer.childFieldsData.requested" fields-meta-data="trainRenderer.metaDataOfChildFields"></child-form-renderer>
+      <child-form-renderer fields-data="trainRenderer.childFieldsData.requested" fields-meta-data="trainRenderer.metaDataOfChildFields"
+       is-focussed="trainRenderer.reflectFormIsFoccused()"></child-form-renderer>
 
 
     </div>

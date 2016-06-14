@@ -6,7 +6,8 @@ var app = angular.module("app").component("busRenderer", {
       "childFieldsData": "<",
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
-      "deleteAll": "&"
+      "deleteAll": "&",
+      "currentlyFocussedForm":"&"
     }
 });
 
@@ -16,6 +17,11 @@ function busRendererCtrl()
   var busRenderer = this;
   console.log("Inside busRenderer");
   console.log(busRenderer);
+  busRenderer.reflectFormIsFoccused=function()
+    {
+      console.log("train form is focussed")
+      trainRenderer.currentlyFocussedForm();
+    }
 
   busRenderer.onDelete = function(index) {
     console.log("inside on delete");

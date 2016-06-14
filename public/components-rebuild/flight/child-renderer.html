@@ -8,7 +8,7 @@
     <md-divider layout-margin></md-divider>
     <div layout-margin ng-if="flightRenderer.childFieldsData.state == 'initial' || flightRenderer.childFieldsData.state == 'request'">
 
-      <child-form-renderer fields-data="flightRenderer.childFieldsData.requested" fields-meta-data="flightRenderer.metaDataOfChildFields"></child-form-renderer>
+      <child-form-renderer fields-data="flightRenderer.childFieldsData.requested" fields-meta-data="flightRenderer.metaDataOfChildFields" is-focussed="flightRenderer.reflectFormIsFoccused()"></child-form-renderer>
 
 
     </div>

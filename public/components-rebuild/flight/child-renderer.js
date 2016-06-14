@@ -6,7 +6,8 @@ var app = angular.module("app").component("flightRenderer", {
       "childFieldsData": "<",
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
-      "deleteAll": "&"
+      "deleteAll": "&",
+      "currentlyFocussedForm":"&"
     }
 });
 
@@ -17,7 +18,14 @@ function flightRendererCtrl()
   console.log("Inside flightRenderer");
   console.log(flightRenderer);
 
-  flightRenderer.onDelete = function(index) {
+
+
+  flightRenderer.reflectFormIsFoccused=function()
+    {
+      console.log("flight form is focussed")
+      flightRenderer.currentlyFocussedForm();
+    }
+flightRenderer.onDelete = function(index) {
     console.log("inside on delete");
     console.log(index);
     flightRenderer.deleteAll();

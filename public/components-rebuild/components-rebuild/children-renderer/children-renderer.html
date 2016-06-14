@@ -1,6 +1,0 @@
-
-{{childrenRenderer.childrenFieldsData}}
-<div ng-repeat="childId in childrenRenderer.selectedChildren">
-
-  <children-router  focussed-child-renderer="childrenRenderer.focussedChild(service)" child-fields-data="childrenRenderer.childrenFieldsData[childId]" meta-data-of-child-fields="childrenRenderer.childrenFieldsMetaData[childId]" card-heading="{{childrenRenderer.childrenLabels[childId]}}" child-id="{{childId}}" delete-all="childrenRenderer.deleteChildGroup(childId)"></children-router>
-</div>

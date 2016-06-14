@@ -8,7 +8,9 @@ angular.module('app')
          metaDataOfChildFields: "<",
          cardHeading: "@",
          childId: "@",
-         deleteAll: "&"
+         deleteAll: "&",
+         childServiceId:"<",
+         focussedChildRenderer:"&"
        }
     });
 function childrenRouterController() {
@@ -16,6 +18,13 @@ function childrenRouterController() {
   console.log("Inside childrenRouterController");
   console.log(childrenRouter);
 
+
+  childrenRouter.focussedForm=function()
+  {
+    console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
+    console.log( "childrenRouter.focussedForm");
+    childrenRouter.focussedChildRenderer({service:childrenRouter.childId});
+  }
   childrenRouter.deleteAllWrapper = function() {
     childrenRouter.deleteAll({"childId":childrenRouter.childId});
   }

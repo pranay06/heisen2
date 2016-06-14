@@ -1,12 +1,21 @@
-<md-card ng-if="stayRenderer.childGroupState !== 'preInitial'">
+<!-- <child-card-renderer array-of-child-fields-data="stayRenderer.childFieldsData" meta-data-of-child-fields="stayRenderer.metaDataOfChildFields" card-heading="{{stayRenderer.cardHeading}}"></child-card-renderer> -->
+<br>
+Inside stay renderer
+<br>
+{{stayRenderer.childFieldsData.length}}
+<br>
+<md-card ng-show="stayRenderer.childFieldsData !== undefine">
   <md-card-title>
     {{stayRenderer.cardHeading}}
+
 
   </md-card-title>
   <div ng-repeat="childFieldsData in stayRenderer.childFieldsData">
     <md-divider layout-margin></md-divider>
+
     <div  layout-margin ng-if="childFieldsData.state === 'initial' || childFieldsData.state === 'request'">
-      <child-form-renderer fields-data="childFieldsData.requested" fields-meta-data="stayRenderer.metaDataOfChildFields"></child-form-renderer>
+
+      <child-form-renderer fields-data="childFieldsData.requested" fields-meta-data="stayRenderer.metaDataOfChildFields" is-focussed="stayRenderer.reflectFormIsFoccused()"></child-form-renderer>
 
       <ng-md-icon flex="40" size="35px" flex-offset="10" icon="delete"  ng-click="stayRenderer.onDelete($index)"></ng-md-icon>
       <ng-md-icon flex="40"  size="35px" flex-offset="10" icon="add_circle" ng-click="stayRenderer.onAdd()" ng-show="$index == stayRenderer.childFieldsData.length-1"></ng-md-icon>

@@ -6,7 +6,8 @@ var app = angular.module("app").component("localTravelRenderer", {
       "childFieldsData": "<",
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
-      "deleteAll": "&"
+      "deleteAll": "&",
+      "currentlyFocussedForm":"&"
     }
 });
 
@@ -27,6 +28,12 @@ function localTravelRendererCtrl()
   //   console.log(localTravelRenderer.childFieldsData);
   //   console.log("end of oninit localTravel");
   // }
+
+localTravelRenderer.reflectFormIsFoccused=function()
+  {
+    console.log("local travel form is focussed")
+    localTravelRenderer.currentlyFocussedForm();
+  }
   console.log("localTravel renderer");
   console.log(localTravelRenderer);
 
