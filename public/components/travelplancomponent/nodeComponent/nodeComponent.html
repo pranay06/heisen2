@@ -7,8 +7,10 @@
   <div class="node-md" ng-click="node.sendDetailsOfElement(node.currentnode)">
     {{node.travelelement.essential.noDependencyData.location|limitTo:3|uppercase}}
   </div>
+
   <div class=""  ng-repeat="(childId,childDetails) in node.locationchildservices">
     <!-- <div class="wrapper"> -->
+    <!-- {{childId}} -->
     <div>
       <child-icon-router-component child-type="childId" child-details="childDetails" reflect-child-select="node.reflectChildSelect(childId)"
       child-data="node.travelelement.childServices[childId]"

@@ -1,10 +1,9 @@
 {
-	"servicesDetails":
-	{
-		"stay":{
+	"servicesDetails": {
+		"stay": {
 			"icons": "hotel",
 			"displayName": "Stay",
-			"captions":{
+			"captions": {
 				"preInitial": "Do you want Stay?",
 				"initial": "Configure your stay",
 				"request": "Stay requested",
@@ -12,72 +11,83 @@
 				"negationStatement": "No Stay Selected"
 			}
 		},
-		"localTravel":{
-			"icons":"directions_car",
+		"localTravel": {
+			"icons": "directions_car",
 			"displayName": "Local Travel",
-			"chooseCaption": "Do you want Local Travel?",
-			"initialCaption": "Configure your Loacal Travel",
-			"requestedCaption": "Local Travel requested",
-			"selectedCaption": "Selected Local Travel ",
-			"negationStatement": "No Local Travel Selected"
+			"captions": {
+				"preInitial": "Do you want Local Travel?",
+				"initial": "Configure your Loacal Travel",
+				"request": "Local Travel requested",
+				"select": "Selected Local Travel ",
+				"negationStatement": "No Local Travel Selected"
+			}
 		},
-		"mode":{
-			"displayName":"Mode of travel",
-			"chooseCaption": "Choose Travel Mode.",
-			"initialCaption": "Configure your Travel Mode",
+		"mode": {
+			"displayName": "Mode of travel",
+			"preInitialCaption": "Configure your Travel Mode",
 			"negationStatement": "No travel mode was selected",
 			"servicesDetails": {
 				"flight": {
 					"icons": "flight",
 					"displayName": "Flight",
-					"requestedCaption": "Flight requested",
-					"selectedCaption": "Selected Flight "
+					"caption": {
+						"initial": "Configure your Flight",
+						"request": "Flight requested",
+						"select": "Selected Flight "
+					}
 				},
 				"train": {
-					"icons":"train",
-					"displayName":"Train",
-					"requestedCaption": "Train requested",
-					"selectedCaption": "Selected Train "
+					"icons": "train",
+					"displayName": "Train",
+					"caption": {
+						"initial": "Configure your Train",
+						"request": "Train requested",
+						"select": "Selected Train "
+					}
+
 				},
-				"bus":{
-					"icons":"directions_bus",
-					"displayName":"Bus",
-					"requestedCaption": "Bus requested",
-					"selectedCaption": "Selected Bus "
+				"bus": {
+					"icons": "bus",
+					"displayName": "Bus",
+					"caption": {
+						"initial": "Configure your Bus",
+						"request": "Bus requested",
+						"select": "Selected Bus "
+					}
+
 				}
 			}
 		}
-
 	},
-  "essential": {
-    "noDependencyData": {
-      "location": {
-        "mandatory": true,
-        "displayName": "City",
-        "id": "location",
-        "type": "autoComplete",
-        "specificAttr": {
-					"url":"autoComplete.json"
-        }
-      }
-    },
-    "modesToSelectTheServices": {
-      "basicServices": {
-        "mandatory": false,
-        "displayName": "Select Basic Services",
-        "id": "selectedServices",
-        "type": "checkBox",
-        "specificAttr": {
-          "domainList": {
-            "stay": "Stay",
-            "localTravel": "Local Travel"
-          }
+	"essential": {
+		"noDependencyData": {
+			"location": {
+				"mandatory": true,
+				"displayName": "City",
+				"id": "location",
+				"type": "autoComplete",
+				"specificAttr": {
+					"url": "autoComplete.json"
+				}
+			}
+		},
+		"modesToSelectTheServices": {
+			"basicServices": {
+				"mandatory": false,
+				"displayName": "Select Basic Services",
+				"id": "selectedServices",
+				"type": "checkBox",
+				"specificAttr": {
+					"domainList": {
+						"stay": "Stay",
+						"localTravel": "Local Travel"
+					}
 				},
 				"javascriptDataType": "Array"
-      }
-    }
-  },
-  "servicesIntializer": {
+			}
+		}
+	},
+	"servicesIntializer": {
     "stay":
       {
         "state": "initial",
