@@ -8,7 +8,8 @@ angular.module('app')
       specificAttr: '<',
       bindData: '<',
       reflectComponent: '&',
-      required: '@'
+      required: '@',
+      reflectFocussedInput:'&'
     }
   });
 
@@ -24,6 +25,15 @@ function multiSelectBoxCtrl()
     this.reflectComponent({value:value});
 
   };
+
+
+  multiSelectBoxCtrl.currentlyFocussed=function()
+  {
+    multiSelectBoxCtrl.reflectFocussedInput();
+    console.log("currentlyFocussed inside multiSelectBoxCtrl");
+    //this.reflectFocussedInput();
+  }
+
 
   multiSelectBoxCtrl.getUniq = function(uniq) {
       console.log("Inside getUniq");

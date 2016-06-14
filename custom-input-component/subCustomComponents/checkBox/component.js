@@ -9,7 +9,8 @@ angular.module('app')
       domainList: '<',
       required: '@',
       bindData: '<',
-      reflectComponent: '&'
+      reflectComponent: '&',
+      reflectFocussedInput:'&'
     }
 });
 function CheckBoxBoxCtrl($scope) {
@@ -17,6 +18,12 @@ function CheckBoxBoxCtrl($scope) {
    console.log("Inside CheckBoxBoxCtrl");
    console.log(ctrl);
 
+   ctrl.currentlyFocussed=function()
+   {
+     ctrl.reflectFocussedInput();
+     console.log("currentlyFocussed DatePickerCtrl");
+     //this.reflectFocussedInput();
+   }
    ctrl.$onChanges = function(changedObj) {
 
     console.log("In Changed Object");

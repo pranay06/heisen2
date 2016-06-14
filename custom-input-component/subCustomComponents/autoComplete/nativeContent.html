@@ -11,7 +11,8 @@
 			md-items="item in autocompleteBoxCtrl.queryData"
 	    md-item-text="item"
 	    md-floating-label="{{autocompleteBoxCtrl.label}}"
-	    md-selected-item-change ="autocompleteBoxCtrl.reflectValue(autocompleteBoxCtrl.bindData)">
+	    md-selected-item-change ="autocompleteBoxCtrl.reflectValue(autocompleteBoxCtrl.bindData)"
+			ng-click="autocompleteBoxCtrl.currentlyFocussed()">
 	  <md-item-template>
 	    <span md-highlight-text="autocompleteBoxCtrl.searchText">{{item}}</span>
 	  </md-item-template>
