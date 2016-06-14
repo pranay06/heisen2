@@ -8,6 +8,7 @@ angular.module('app')
          childrenFieldsMetaData: "<",
          selectedChildren: "<",
          childrenLabels: "<",
+         unCheckTheSelectedOnes: "&",
          reflectFocussedRenderer:"&"
        }
     });
@@ -30,9 +31,11 @@ function childrenRendererController() {
 console.log("inside children renderer88888888888888888888888888888")
 console.log(childrenRenderer.childrenFieldsData);
   childrenRenderer.deleteChildGroup = function(childId){
-    if(childrenRenderer.childrenFieldsData[childId] !== undefined) {
-      delete(childrenRenderer.childrenFieldsData[childId]);
+    if(childrenRenderer.childrenFieldsData[childId].individualChildServices !== undefined) {
+      childrenRenderer.childrenFieldsData[childId].individualChildServices.splice(0,childrenRenderer.childrenFieldsData[childId].individualChildServices.length);
+      childrenRenderer.childrenFieldsData[childId].state = "preInitial";
     }
+    childrenRenderer.unCheckTheSelectedOnes({"childId":childId});
   }
 
   // childrenRenderer.$onInit =  function() {

@@ -1,10 +1,4 @@
-<!-- <child-card-renderer array-of-child-fields-data="stayRenderer.childFieldsData" meta-data-of-child-fields="stayRenderer.metaDataOfChildFields" card-heading="{{stayRenderer.cardHeading}}"></child-card-renderer> -->
-<br>
-Inside stay renderer
-<br>
-{{stayRenderer.childFieldsData.length}}
-<br>
-<md-card ng-show="stayRenderer.childFieldsData !== undefine">
+<md-card ng-if="stayRenderer.childGroupState !== 'preInitial'">
   <md-card-title>
     {{stayRenderer.cardHeading}}
 

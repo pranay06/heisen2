@@ -16,6 +16,41 @@ function travelBookingCtrl() {
   var travelBooking = this;
   console.log("Inside travelBookingCtrl################");
   console.log(travelBooking);
+  travelBooking.unCheckTheSelectedOnes = function(childId) {
+    console.log(" Inside unCheckTheSelectedOnes");
+    for(modes in travelBooking.metaDataOfObj.essential.modesToSelectTheServices) {
+      console.log("Inside the loop");
+      console.log(travelBooking.metaDataOfObj.essential);
+      console.log(modes);
+      if(travelBooking.metaDataOfObj.essential.modesToSelectTheServices[modes].specificAttr.domainList[childId] !== undefined) {
+          //When child id found
+          if(travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes].constructor == Array) {
+            console.log("Arayyyy");
+            var index = travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes].indexOf(childId);
+            if(index >-1) {
+              console.log("index is >-1");
+              console.log(index);
+              travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes].splice(index, 1);
+              //Can be solved using angular.copy
+              // var tempObjForReflection = angular.copy()
+              if(index ==0) {
+                console.log("Yes it was the last element");
+                break;
+                // travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes] = travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes].concat([]);
+                // delete  travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes];
+                travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes] = travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes].slice();
+              }
+            }
+
+          }
+          else {
+            if(travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes].constructor ==String) {
+              delete travelBooking.currentSelectedObj.essential.modesToSelectTheServices[modes];
+            }
+          }
+      }
+    }
+  };
 
 
 travelBooking.focussedRenderer=function(service)
@@ -24,7 +59,7 @@ travelBooking.focussedRenderer=function(service)
   console.log(service);
   console.log(travelBooking.currentSelectedChildren);
 
-  travelBooking.sendFocussedChildToParent({"focussedChild": service})
+  travelBooking.sendFocussedChildToParent({"focussedChild": service});
 }
   travelBooking.arrayUnique = function(array) {
       var a = array.concat();
@@ -68,20 +103,5 @@ travelBooking.focussedRenderer=function(service)
       }
     });
   }
-
-
-  //This needs to be in a function which gets called before html is rendered
-  // travelBooking.childrenLabels = {};
-  // for(mode in travelBooking.metaDataOfObj.essential.modesToSelectTheServices)
-  // {
-  //   var modeData = travelBooking.metaDataOfObj.essential.modesToSelectTheServices[mode];
-  //   Object.assign(travelBooking.childrenLabels,modeData.specificAttr.domainList)
-  //
-  // }
-
-  // travelBooking.metaDataOfChildren = travelBooking.metaDataOfObj.services;
-
-  // travelBooking.childrenData = travelBooking.currentSelectedObj.childServices;
-
 
 }

@@ -7,6 +7,7 @@ var app = angular.module("app").component("stayRenderer", {
       "metaDataOfChildFields": "<",
       "cardHeading": "@",
       "deleteAll": "&",
+      "childGroupState": "@",
       "currentlyFocussedForm":"&"
     }
 });
