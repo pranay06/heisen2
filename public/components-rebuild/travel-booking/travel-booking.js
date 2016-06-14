@@ -88,7 +88,9 @@ travelBooking.focussedRenderer=function(service)
   travelBooking.reflectSelectedChildren = function(arrayOfSelectedChildren) {
     travelBooking.currentSelectedChildren = arrayOfSelectedChildren;
     console.log("I am inside reflectSelectedChildren");
+
     console.log(travelBooking.currentSelectedChildren);
+
     for(cId in travelBooking.currentSelectedObj.childServices) {
 
       if(travelBooking.currentSelectedChildren.indexOf(cId) <0){
@@ -97,11 +99,13 @@ travelBooking.focussedRenderer=function(service)
     }
     travelBooking.currentSelectedChildren.forEach(function(childId){
       console.log("Inside foreach of children list initial");
-      if(travelBooking.currentSelectedObj.childServices[childId] == undefined){
+      if(travelBooking.currentSelectedObj.childServices[childId].state == "preInitial"){
         console.log("I am going to intialize childServices");
-        travelBooking.currentSelectedObj.childServices[childId] = travelBooking.metaDataOfObj.servicesIntializer[childId];
+        travelBooking.currentSelectedObj.childServices[childId].individualChildServices.push(travelBooking.metaDataOfObj.servicesIntializer[childId]);
+        travelBooking.currentSelectedObj.childServices[childId].state = "initial";
       }
     });
+
   }
 
 }

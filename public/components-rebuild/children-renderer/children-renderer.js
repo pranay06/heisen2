@@ -28,8 +28,8 @@ function childrenRendererController() {
   console.log(childrenRenderer);
   console.log(")))))))))))))))))))))))))))))))))))))))))))))))))))");
   console.log(childrenRenderer.selectedChildren);
-console.log("inside children renderer88888888888888888888888888888")
-console.log(childrenRenderer.childrenFieldsData);
+  console.log("inside children renderer88888888888888888888888888888")
+  console.log(childrenRenderer.childrenFieldsData);
   childrenRenderer.deleteChildGroup = function(childId){
     if(childrenRenderer.childrenFieldsData[childId].individualChildServices !== undefined) {
       childrenRenderer.childrenFieldsData[childId].individualChildServices.splice(0,childrenRenderer.childrenFieldsData[childId].individualChildServices.length);

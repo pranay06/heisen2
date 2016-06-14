@@ -86,11 +86,11 @@ function CheckBoxBoxCtrl($scope) {
      console.log("+++++++++++++++++");
      if(ctrl.bindData == undefined) {
        ctrl.bindData = [];
-       setTimeout(function() {
-         $scope.$apply(function() {
-           ctrl.bindData = ctrl.bindData.splice(0,0).splice();
-         });
-       },5000);
+      //  setTimeout(function() {
+      //    $scope.$apply(function() {
+      //      ctrl.bindData = ctrl.bindData.splice(0,0).splice();
+      //    });
+      //  },5000);
      }
     ctrl.checkBoxInternalData = [];
     if(ctrl.domainList.constructor === Object) {

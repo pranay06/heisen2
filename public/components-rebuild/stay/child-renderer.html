@@ -4,7 +4,9 @@
 
 
   </md-card-title>
+
   <div ng-repeat="childFieldsData in stayRenderer.childFieldsData">
+    I am inside repeat
     <md-divider layout-margin></md-divider>
 
     <div  layout-margin ng-if="childFieldsData.state === 'initial' || childFieldsData.state === 'request'">
