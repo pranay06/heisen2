@@ -691,6 +691,7 @@ angular.module('app').factory('mainService', function ($http, $q) {
 			"state": "preInitial",
 			"individualChildServices": []
 		}
+
 	}
 }, {
 	"type": "transit",
@@ -704,7 +705,10 @@ angular.module('app').factory('mainService', function ($http, $q) {
 		}
 	},
 	"childServices": {
-		"flight": {}
+		"mode": {
+      "state": "preInitial",
+			"individualChildServices": []
+    }
 	}
 }, {
 	"type": "location",

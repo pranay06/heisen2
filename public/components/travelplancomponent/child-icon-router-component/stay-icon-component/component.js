@@ -17,4 +17,11 @@ function stayIconComponentCtrl() {
   var stayIconComponentCtrl = this;
   console.log(" I am inside stayIconComponentCtrl");
   console.log(stayIconComponentCtrl);
+
+  stayIconComponentCtrl.reflectChildSelectWrapper = function(childServicesData) {
+    console.log(" i am inside reflectChildSelectWrapper");
+    console.log(childServicesData);
+    stayIconComponentCtrl.reflectChildSelect({"childServicesData":childServicesData});
+  }
+
 }

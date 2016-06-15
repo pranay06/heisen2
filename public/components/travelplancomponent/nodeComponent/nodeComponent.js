@@ -13,7 +13,8 @@ var app = angular.module("app").component("nodeComponent", {
     'currentnodeedgetravel':'&',
     "reflectselectedchild": "&",
     "metadata": "<",
-    "reflectchildcreation": "&"
+    "reflectchildcreation": "&",
+    "createChildService": "&"
   }
 });
 
@@ -31,6 +32,14 @@ function nodeController(_) {
         node.childDisplayState[childId] = "exists";
       }
     }
+  }
+
+  node.createChildServiceById = function(childId) {
+        // node.
+
+      node.travelelement.childServices[childId].individualChildServices.push(node.metadata.servicesIntializer[childId]);
+      node.travelelement.childServices[childId].state = "initial";
+      node.reflectselectedchild({"currentElement":node.travelelement, "currentElementIndex":node.currentnode,"selectedChild":childId,"metadata":node.metadata});
   }
   console.log("travel element inside node controller");
   console.log(node);
@@ -134,12 +143,12 @@ function nodeController(_) {
   }
 
 
-  node.reflectChildSelect = function(childId) {
-    console.log("I am inside reflectChildSelect");
-    node.childDisplayState[node.currentFocussedObject] = "exists";
-    node.childDisplayState[childId] = "focus";
-    node.currentFocussedObject = childId;
-    node.reflectselectedchild({"currentElement":node.travelelement, "currentElementIndex":node.currentnode,"selectedChild":childId,"metadata":node.metadata});
+  node.reflectChildSelect = function(childId,childServicesData) {
+    // node.childServices[childId].push(node.metadata.servicesIntializer[childId]);
+    console.log(childId);
+    console.log(' Inside reflectChildSelect');
+    console.log(childServicesData);
+    node.reflectselectedchild({"currentElement":node.travelelement, "currentElementIndex":node.currentnode,"selectedChild":childId,"metadata":node.metadata, "childServicesData":childServicesData});
   }
   node.dummyState = "notExist";
   node.createMimicChild = function(childId) {

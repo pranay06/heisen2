@@ -4,29 +4,40 @@
 			"visaonarrival": {
 				"icons": "flight_takeoff",
 				"displayName": "Visa on Arrival",
-				"chooseCaption": "Do you want Visa on Arrival?",
-				"negationStatement": "Visa has not been opted"
+				"captions": {
+					"preInitial": "Need Visa on Arrival?",
+					"initial": "Configure VOA",
+					"request": "VOA requested",
+					"select": "Got the Visa",
+					"negationStatement": "Visa has not been opted"
+				}
 			},
 			"forex": {
 				"icons": "monetization_on",
 				"displayName": "Foreign Exchange",
-				"chooseCaption": "Do you want Forex service?",
-				"negationStatement": "Forex has not been opted"
+				"captions": {
+					"preInitial": "Need Forex?",
+					"initial": "Configure Forex",
+					"request": "Forex requested",
+					"select": "Got the Forex",
+					"negationStatement": "Forex has not been opted"
+				}
 			}
 		},
 		"mutuallyExclusive": {
 			"mode": {
 				"displayName": "Mode of travel",
-				"preInitialCaption": "Configure your Travel Mode",
+				"preInitialCaption": "Select mode of Travel",
 				"negationStatement": "No travel mode was selected",
 				"servicesDetails": {
 					"flight": {
 						"icons": "flight",
 						"displayName": "Flight",
-						"caption": {
-							"initial": "Configure your Flight",
+						"captions": {
+							"initial": "Configure Flight",
 							"request": "Flight requested",
-							"select": "Selected Flight "
+							"select": "Got the Flight for ",
+							"negationStatement": "Flight has not been opted"
 						}
 					},
 					"train": {

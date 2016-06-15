@@ -1,16 +1,15 @@
 
-<md-button ng-if="stayIconComponentCtrl.childData.state == 'preInitial'" ng-click="stayIconComponentCtrl.reflectChildSelect()">
-  {{stayIconComponentCtrl.childDetails.captions.preInitial}}
+<md-button ng-if="stayIconComponentCtrl.childData.state == 'preInitial'" ng-click="stayIconComponentCtrl.createChild()">
+  <subnode-text>{{stayIconComponentCtrl.childDetails.captions.preInitial}}</subnode-text>
 </md-button>
 
 <div ng-if="stayIconComponentCtrl.childData.state != 'preInitial'">
   <div ng-repeat="childServicesData in stayIconComponentCtrl.childData.individualChildServices">
-    <md-button ng-click="stayIconComponentCtrl.reflectChildSelect()">
-      {{stayIconComponentCtrl.childDetails.captions[childServicesData.state]}}
+    <md-button ng-click="stayIconComponentCtrl.reflectChildSelectWrapper(childServicesData)">
+      <subnode-text>{{stayIconComponentCtrl.childDetails.captions[childServicesData.state]}}</subnode-text>
       <div ng-if="childServicesData.state == 'select'">
-        {{childServicesData.selected.name}}
+        <subnode-text>{{childServicesData.selected.name}}</subnode-text>
       </div>
     </md-button>
   </div>
-  {{stayIconComponentCtrl.childDetails}}
 </div>

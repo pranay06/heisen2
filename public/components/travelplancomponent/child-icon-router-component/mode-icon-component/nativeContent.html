@@ -1,46 +1,13 @@
-<!-- <div ng-if="!modeIconComponent.show">
-  {{modeIconComponent.childDetails.negationStatement}}
-</div>
-{{modeIconComponent.show}}
-<div ng-if="modeIconComponent.show">
-  {{modeIconComponent.childRendererState}}
-  <div class="btnWithToolTip" ng-if="modeIconComponent.childRendererState == 'notExist'">
-    <md-button ng-click="modeIconComponent.showModes()">
-      {{modeIconComponent.childDetails.chooseCaption}}
-      {{modeIconComponent.modeShow}}
-    </md-button>
-    <span class="btnToolTip" ng-show="modeIconComponent.modeShow" >
-      <i ng-repeat="(modeId,modeDetails) in modeIconComponent.childDetails.servicesDetails" class="material-icons"  ng-click="modeIconComponent.selectMode(modeId)">{{modeDetails.icons}}</i>
-    </span>
-
-  </div>
-  <div ng-if='modeIconComponent.childRendererState== "exists" || modeIconComponent.childRendererState=="focus"'>
-    {{modeIconComponent.selectedMode}}
-    <div ng-include="'public/components/travelplancomponent/child-icon-router-component/child-icon-templates/'+modeIconComponent.selectedMode+'/template.html'"></div>
-  </div>
-</div> -->
-
-
-
-
-
-
-
-
 <div>
-Inside Flight
-  <div class="btnWithToolTip" ng-if="modeIconComponent.childData.state == 'preInitial'">
+  <div  class="btnWithToolTip" ng-if="modeIconComponent.childData.state == 'preInitial'">
     <md-button ng-click="modeIconComponent.showModes()">
-      {{modeIconComponent.childDetails.preInitialCaption}}
-      {{modeIconComponent.modeShow}}
+    <subnode-text>  {{modeIconComponent.childDetails.preInitialCaption}}</subnode-text>
     </md-button>
     <span class="btnToolTip" ng-show="modeIconComponent.modeShow" >
       <i ng-repeat="(modeId,modeDetails) in modeIconComponent.childDetails.servicesDetails" class="material-icons"  ng-click="modeIconComponent.selectMode(modeId)">{{modeDetails.icons}}</i>
     </span>
-
   </div>
   <div ng-if="modeIconComponent.childData.state == 'initial'||modeIconComponent.childData.state == 'request'||modeIconComponent.childData.state == 'select'">
-    {{modeIconComponent.selectedMode}}
     <div ng-include="'public/components/travelplancomponent/child-icon-router-component/child-icon-templates/'+modeIconComponent.selectedMode+'/template.html'"></div>
   </div>
 </div>

@@ -12,9 +12,10 @@
     <!-- <div class="wrapper"> -->
     <!-- {{childId}} -->
     <div>
-      <child-icon-router-component child-type="childId" child-details="childDetails" reflect-child-select="node.reflectChildSelect(childId)"
+      <child-icon-router-component child-type="childId" child-details="childDetails" reflect-child-select="node.reflectChildSelect(childId,childServicesData)"
       child-data="node.travelelement.childServices[childId]"
-      show="node.showMimic"
+      create-child = "node.createChildServiceById(childId)"
+      show="node.showMimic">
       </child-icon-router-component>
 
       <!-- Below code is supposed to be changed according to change in ng-repeat -->

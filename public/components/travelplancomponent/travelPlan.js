@@ -33,6 +33,9 @@ function travelPlanController() {
 
    var plan = this;
 
+   plan.createChildService = function(childId) {
+
+   }
    plan.reflectChildCreationWrapper = function(currentElement, currentElementIndex, selectedChild, metadata) {
      var selectedChildDetails = {
        "currentObject": currentElement,
@@ -42,14 +45,15 @@ function travelPlanController() {
      }
      plan.reflectchildcreation({"createdChildDetails":selectedChildDetails});
    }
-  plan.reflectselectedchildwrapper = function(currentElement, currentElementIndex, selectedChild, metadata) {
+  plan.reflectselectedchildwrapper = function(currentElement, currentElementIndex, selectedChild, metadata, childServicesData) {
     console.log("I am inside reflectselectedchildwrapper");
-    console.log(currentElement, currentElementIndex, selectedChild, metadata);
+    console.log(currentElement, currentElementIndex, selectedChild, metadata, childServicesData);
     var selectedChildDetails = {
       "currentObject": currentElement,
       "index": currentElementIndex,
       "selectedChild": selectedChild,
-      "metaData": metadata
+      "metaData": metadata,
+      "childServicesData": childServicesData
     }
     plan.reflectselectedchild({"selectedChildDetails":selectedChildDetails});
   }

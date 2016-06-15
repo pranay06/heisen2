@@ -6,7 +6,6 @@
   <div ng-if="commonIconComponent.childRendererState==undefined">
     <md-button ng-click="commonIconComponent.createChild()">{{commonIconComponent.childDetails.chooseCaption}}</md-button>
   </div>
-  {{commonIconComponent.childRendererState}}
   <div ng-if="commonIconComponent.childRendererState !== undefined || commonIconComponent.childRendererState=='focus'">
     <i class="material-icons" ng-class="commonIconComponent.childRendererState" ng-click="commonIconComponent.reflectChildSelect()">{{commonIconComponent.childDetails.icons}}</i>
   </div>

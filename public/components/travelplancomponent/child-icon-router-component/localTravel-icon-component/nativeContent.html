@@ -1,4 +1,22 @@
 
+<md-button ng-if="localTravelIconComponentCtrl.childData.state == 'preInitial'" ng-click="localTravelIconComponentCtrl.createChild()">
+  <subnode-text>{{localTravelIconComponentCtrl.childDetails.captions.preInitial}}</subnode-text>
+</md-button>
+
+<div ng-if="localTravelIconComponentCtrl.childData.state != 'preInitial'">
+  <div ng-repeat="childServicesData in localTravelIconComponentCtrl.childData.individualChildServices">
+    <md-button ng-click="localTravelIconComponentCtrl.reflectChildSelectWrapper(childServicesData)">
+      <subnode-text>{{localTravelIconComponentCtrl.childDetails.captions[childServicesData.state]}}</subnode-text>
+      <div ng-if="childServicesData.state == 'select'">
+      <subnode-text>  {{childServicesData.selected.name}}</subnode-text>
+      </div>
+    </md-button>
+  </div>
+</div>
+
+
+
+<!--
 <md-button ng-if="localTravelIconComponentCtrl.childData.state == 'preInitial'" ng-click="localTravelIconComponentCtrl.reflectChildSelect()">
   {{localTravelIconComponentCtrl.childDetails.captions.preInitial}}
 </md-button>
@@ -13,4 +31,4 @@
     </md-button>
   </div>
   {{localTravelIconComponentCtrl.childDetails}}
-</div>
+</div> -->
